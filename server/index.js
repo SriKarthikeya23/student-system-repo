@@ -7,21 +7,21 @@ const mqtt = require('mqtt')
 app.use(cors());
 app.use(express.json());
 
-// const db = mysql.createPool({
-//     connectionLimit: 10,
-//     host: process.env.MYSQL_HOST || "localhost",
-//     user: process.env.MYSQL_USER || "root",
-//     password: process.env.MYSQL_PASSWORD || "password",
-//     database: process.env.MYSQL_DATABASE || "erpsystem",
-//   });
+const db = mysql.createPool({
+    connectionLimit: 10,
+    host: process.env.MYSQL_HOST || "localhost",
+    user: process.env.MYSQL_USER || "root",
+    password: process.env.MYSQL_PASSWORD || "password",
+    database: process.env.MYSQL_DATABASE || "erpsystem",
+  });
 
-const db = mysql.createConnection({
-    user : 'root',
-    host : 'localhost',
-    password : '190040608',
-    database : 'erpsystem',
-    insecureAuth : true
-});
+// const db = mysql.createConnection({
+//     user : 'root',
+//     host : 'localhost',
+//     password : '190040608',
+//     database : 'erpsystem',
+//     insecureAuth : true
+// });
 
 app.post('/enter/attendance', (req, res) => {
     console.log(req.body);
@@ -102,6 +102,6 @@ rfid.on('message', function(topic, message) {
     }); 
 });
 
-app.listen(3001, () => {
-    console.log("You server is running on port 3001");
+app.listen(5004, () => {
+    console.log("You server is running on port 5004");
 });

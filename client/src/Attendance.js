@@ -10,7 +10,7 @@ function Attendance() {
     const [rfid, setRfid] = useState("");
 
     const addRecord = () => {
-        Axios.post("http://localhost:3001/enter/attendance", {
+        Axios.post("http://65.49.44.136:3003/enter/attendance", {
           rfid: rfid
         }).then(() => {
           console.log("Success");

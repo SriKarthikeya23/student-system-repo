@@ -20,7 +20,7 @@ function Registration() {
     
     const addStudentDetails = () => {
       window.location.reload();
-        Axios.post('http://65.49.44.136:3003/create', {
+        Axios.post('http://65.49.44.136:5004/create', {
             idno:idno,
             rfidno:rfidno,
             firstname:firstname,

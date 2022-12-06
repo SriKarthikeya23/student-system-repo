@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: db
     ports:
-      - "3001:3001"
+      - "5004:5004"
     depends_on:
       - db
     restart: on-failure
@@ -23,6 +23,6 @@ services:
     build:
       context: ./client
     ports:
-      - "3000:3000"
+      - "5003:5003"
     container_name: client-side
     stdin_open: true

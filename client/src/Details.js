@@ -11,14 +11,14 @@ function Studentdetails() {
     const [id, setId] = useState(0);
 
     const getStudentDetails = () => {
-        Axios.get('http://65.49.44.136:3003/get/details/all').then((response) => {
+        Axios.get('http://65.49.44.136:5004/get/details/all').then((response) => {
             setStudentList(response.data); 
             console.log(response.data);
         })
     }
 
     const getStudent = (id) => {
-        Axios.get(`http://65.49.44.136:3003/get/details/${id}`).then((response) => {
+        Axios.get(`http://65.49.44.136:5004/get/details/${id}`).then((response) => {
             setStudentList(response.data);
         })
     }

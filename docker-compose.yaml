@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  db:
+    build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+    restart: always
+  server:
+    build: ./server
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    restart: on-failure
+    container_name: server-side
+  client:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    container_name: client-side
+    stdin_open: true
